@@ -33,8 +33,24 @@
   arrayGenerator('entries', { sum: 3, mult: 2, div: 1, sub: 0 }) // [ [ 'sum', 3 ], [ 'mult', 2 ], [ 'div', 1 ], [ 'sub', 0 ] ]
 */
 
-const calculator = (number1, number2) => {};
+const numbers = require('./numbers');
 
-const arrayGenerator = (type, object) => {};
+const calculator = (number1, number2) => {
+  // referência: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Math/trunc
+  const objeto = {
+    sum: Math.trunc(number1 + number2),
+    mult: Math.trunc(number1 * number2),
+    div: Math.trunc(number1 / number2),
+    sub: Math.trunc(number1 - number2),
+  };
+  return objeto;
+};
+console.log(calculator(1, 2));
+
+const arrayGenerator = (type, object) => {
+  if (type === 'keys') return Object.keys(object);
+  if (type === 'values') return Object.values(object);
+  if (type === 'entries') return Object.entries(object);
+};
 
 module.exports = { calculator, arrayGenerator };
