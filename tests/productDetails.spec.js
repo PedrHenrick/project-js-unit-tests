@@ -39,7 +39,8 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     // Teste se os dois itens dentro do array retornado pela função são objetos.
     expect(typeof array[0] === 'object' && typeof array[1] === 'object').toBe(true);
     // Teste se quando passado parâmetros diferentes entre si, os dois objetos também são diferentes entre si.
-    fail('Não pega');
+    
+    expect(productDetails('Lampada', 'Abobrinha')[0] !== productDetails('Lampada', 'Abobrinha')[1]).toBeTruthy();
     // Teste se os dois productIds terminam com 123.
     // referência https://pt.stackoverflow.com/questions/3719/como-obter-apenas-os-n%C3%BAmeros-de-uma-string-em-javascript
     const item1 = productDetails('Alcool gel', 'Máscara')[0].details.productId;
